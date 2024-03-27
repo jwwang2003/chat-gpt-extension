@@ -1,0 +1,43 @@
+.sidebar {
+  position: fixed;
+  left: 100%;
+  top: 0;
+  width: calc(100vw - 260px);
+  height: 100%;
+  /* grabs */
+  background-color: var(--sidebar-surface-primary);
+  transition: transform 0.3s ease;
+  z-index: 1000; /* Ensure it's above most other elements */
+}
+
+@media (max-width: 767px) {
+  /* Your CSS rules for screens smaller than 768px */
+  .sidebar {
+    width: 100%;
+  }
+
+  /* Add more selectors and styles as needed */
+}
+
+.sidebar.visible {
+  transform: translateX(-100%);
+}
+
+.sidebar .toggle-button {
+  position: absolute;
+  left: -50px; /* Adjust based on button size to ensure it's outside the sidebar */
+  top: 20px;
+}
+
+.content {
+  display: block;
+  overflow: scroll;
+  height: 100%;
+  padding: 20px;
+  /* Style your content as needed */
+}
+
+.sidebar table {
+    table-layout:fixed;
+    width:100%;
+}

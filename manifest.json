@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Extension",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "Popup",
+    "default_popup": "index.html",
+    "default_icon": "logo192.png"
+  },
+  "icons": {},
+  "content_scripts": [
+    {
+      "matches": [
+        "https://blank.org/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": ["content-script/src/main.tsx"],
+      "media": []
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://blank.org/*",
+    "https://chat.openai.com/*"
+  ],
+  "commands": {
+    "toggle-sidebar": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Run \"foo\" on the current page."
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+J"
+      }
+    }
+  }
+}
